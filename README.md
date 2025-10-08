@@ -1,5 +1,5 @@
 cmykl. 
-- 18 Jokers
+- 23 Jokers
 - 2 Vouchers
 - 1 Spectral Card
 - 1 Seal
