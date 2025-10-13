@@ -55,7 +55,7 @@ SMODS.Joker{ --The Mountain
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
                 return {
-                    mult = card.ability.extra.spadesindeck
+                    chips = card.ability.extra.spadesindeck
                 }
         end
     end
