@@ -31,6 +31,7 @@ SMODS.Joker{ --Rock Joker
     perishable_compat = true,
     unlocked = true,
     discovered = true,
+    enhancement_gate = "m_stone",
     atlas = 'CustomJokers',
     pools = { ["cmykl_cmykl_jokers"] = true },
 

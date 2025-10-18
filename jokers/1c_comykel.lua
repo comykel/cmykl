@@ -3,6 +3,7 @@ SMODS.Joker{ --comykel
     key = "comykel",
     config = {
         extra = {
+            rare_mod = 99999
         }
     },
     loc_txt = {
@@ -48,17 +49,10 @@ SMODS.Joker{ --comykel
           and true
       end,
 
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play  then
-            if true then
-                if SMODS.pseudorandom_probability(card, 'group_0_4d071917', 1, 2, 'j_cmykl_comykel') then
-                      local random_seal = SMODS.poll_seal({mod = 10, guaranteed = true})
-                if random_seal then
-                    context.other_card:set_seal(random_seal, true)
-                end
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Card Modified!", colour = G.C.BLUE})
-                  end
-            end
-        end
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.rare_mod = G.GAME.rare_mod + card.ability.extra.rare_mod
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.rare_mod = G.GAME.rare_mod - card.ability.extra.rare_mod
     end
 }

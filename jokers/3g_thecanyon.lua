@@ -8,10 +8,10 @@ SMODS.Joker{ --The Canyon
     loc_txt = {
         ['name'] = 'The Canyon',
         ['text'] = {
-            '{C:money}$1.5{} when {C:attention}Boss Blind{} is',
-            'defeated for each {C:diamonds}Diamond{}',
-            'cards in your {C:attention}full deck{}',
-            '{C:inactive}(Currently{} {C:money}$#1#{}{C:inactive}){}'
+            'Earn {C:money}$1.5{} for each {C:diamonds}Diamond{}',
+            'card in your {C:attention}full deck{}',
+            'when {C:attention}Boss Blind{} is defeated',
+            '{C:inactive}(Currently{} {C:money}$#1#{}{C:inactive}, rounded down){}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -28,6 +28,7 @@ SMODS.Joker{ --The Canyon
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
+    enhancement_gate = "m_stone",
     eternal_compat = true,
     perishable_compat = true,
     unlocked = true,
@@ -48,7 +49,7 @@ SMODS.Joker{ --The Canyon
                 end
             end
         end
-        card.ability.extra.diamondsindeck = diamondtally * 1.5
+        card.ability.extra.diamondsindeck = math.floor(diamondtally * 1.5)
         return {vars = { (card.ability.extra.diamondsindeck) or 0}}
     end,
 

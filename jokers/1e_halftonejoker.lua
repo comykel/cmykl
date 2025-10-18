@@ -9,13 +9,13 @@ SMODS.Joker{ --Halftone Joker
     key = "halftonejoker",
     config = {
         extra = {
-            dollars = 6
+            dollars = 3
         }
     },
     loc_txt = {
         ['name'] = 'Halftone Joker',
         ['text'] = {
-            [1] = 'Earn {C:money}$6{} if played hand',
+            [1] = 'Earn {C:money}$3{} if scoring hand',
             [2] = 'has {C:attention}3{} or more',
             [3] = 'different {C:attention}suits{}'
         },
@@ -47,9 +47,9 @@ SMODS.Joker{ --Halftone Joker
         local unique_suits = {}
 
         for _, played_card in ipairs(context.scoring_hand) do
-            if (SMODS.get_enhancements(played_card)["m_stone"] or SMODS.get_enhancements(played_card)["m_wild"]) then
+            if (SMODS.get_enhancements(played_card)["m_stone"] or SMODS.get_enhancements(played_card)["m_wild"]) and not context.other_card.debuff then
                 unique_suits["Suitless"] = true
-            elseif played_card.base.suit then
+            elseif played_card.base.suit and not context.other_card.debuff then
                 unique_suits[played_card.base.suit] = true
             end 
         end
