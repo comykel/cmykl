@@ -9,7 +9,7 @@ SMODS.Joker{ --Yellow Mark
         ['name'] = '{C:money}Y{}ellow Mark',
         ['text'] = {
             'earn {C:money}$2{} at end of',
-            'round per each {C:attention}Vouchers{}',
+            'round for each {C:attention}Vouchers{}',
             'redeemed this run',
             '{C:inactive}(Currently{} {C:money}$#1#{}{C:inactive}){}'
         },
