@@ -41,7 +41,7 @@ SMODS.Joker{ --Invitation Card
     end,
 
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and not G.GAME.blind.boss then
+        if context.individual and context.cardarea == G.play and not G.GAME.blind.boss and not context.blueprint then
             card.ability.extra.hype = (card.ability.extra.hype) + 2
             return {
                 message = "Hype!"

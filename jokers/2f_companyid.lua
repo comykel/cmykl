@@ -40,7 +40,7 @@ SMODS.Joker{ --Company ID
     end,
 
     calculate = function(self, card, context)
-        if context.money_altered and type(context.amount) == "number" then
+        if context.money_altered and type(context.amount) == "number" and not context.blueprint then
             local spendy = context.amount
             if spendy < 0 then
                 card.ability.extra.expenses = card.ability.extra.expenses + (-spendy)

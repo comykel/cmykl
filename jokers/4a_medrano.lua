@@ -51,7 +51,7 @@ SMODS.Joker{ --Medrano
     end,
 
     calculate = function(self, card, context)
-        if context.cardarea == G.hand and context.end_of_round  then
+        if context.cardarea == G.hand and context.end_of_round and not context.blueprint then
             if context.other_card.seal == "Blue" then
                 return {
                     func = function()
@@ -61,7 +61,7 @@ SMODS.Joker{ --Medrano
                 }
             end
         end
-        if context.cardarea == G.hand and context.end_of_round  then
+        if context.cardarea == G.hand and context.end_of_round and not context.blueprint then
             if context.other_card.seal == "Red" and ((SMODS.has_enhancement(context.other_card, 'm_steel')) or SMODS.has_enhancement(context.other_card, 'm_gold')) then
                 return {
                     func = function()
@@ -72,7 +72,7 @@ SMODS.Joker{ --Medrano
             end
         end
 
-        if context.individual and context.cardarea == G.play  then
+        if context.individual and context.cardarea == G.play and not context.blueprint then
             if context.other_card.seal == "Gold" then
                 card.ability.extra.medranorich = (card.ability.extra.medranorich) + 50
             elseif context.other_card.seal == "Red" then
@@ -89,7 +89,7 @@ SMODS.Joker{ --Medrano
                 }
             end
         end
-        if context.remove_playing_cards  then
+        if context.remove_playing_cards and not context.blueprint then
                 for k, removed_card in ipairs(context.removed) do
                     if removed_card.seal == "cmykl_spectralseal" then
                         return {

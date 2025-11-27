@@ -44,5 +44,5 @@ SMODS.Joker{ --Double Tap
                 message = "Bang!"
             }
         end
-    end
+    end,
 }

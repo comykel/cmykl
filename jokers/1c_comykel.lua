@@ -9,9 +9,8 @@ SMODS.Joker{ --comykel
     loc_txt = {
         ['name'] = '{C:planet}c{}o{C:legendary}m{}{C:money}y{}{X:white,C:default}k{}el',
         ['text'] = {
-            'Credits (for the entire mod):',
-            '{X:dark_edition,C:white}comykel{}, {C:green}JokerForge{}, and ChatGPT{C:inactive}(lol){}',
-            'this {C:attention}card{} was also used for {C:attention}code testing.{}',
+            '{X:red, C:white}HOW DID YOU GET THIS?!{}',
+            'makes commons and uncommons impossible to get in shop',
             '{C:inactive}Unobtainable in normal runs.{}'
         },
         ['unlock'] = {
@@ -34,6 +33,7 @@ SMODS.Joker{ --comykel
     unlocked = true,
     discovered = true,
     no_collection = true,
+
     atlas = 'CustomJokers',
     pools = { ["cmykl_cmykl_jokers"] = true },
     soul_pos = {
@@ -48,6 +48,12 @@ SMODS.Joker{ --comykel
           )
           and true
       end,
+    calculate = function(self, card, context)
+        if card.edition and card.edition.key == "e_negative" then
+            card.children.center:set_sprite_pos({x = 7, y = 2})
+            card.children.floating_sprite:set_sprite_pos({x = 8, y = 2})
+        end
+    end,
 
     add_to_deck = function(self, card, from_debuff)
         G.GAME.rare_mod = G.GAME.rare_mod + card.ability.extra.rare_mod

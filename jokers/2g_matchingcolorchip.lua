@@ -45,7 +45,7 @@ SMODS.Joker{ --Matching Color Chip
     end,
 
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main  then
+        if context.cardarea == G.jokers and context.joker_main and not context.blueprint then
             local sCount = 0
             local cCount = 0
             local dCount = 0
